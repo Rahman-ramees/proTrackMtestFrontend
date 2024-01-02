@@ -21,7 +21,7 @@ export class CartService {
 
   addToCart(product: any) {
     product.quantity = 1
-    product.totalcamount = product.price
+    product.totalcamount = Math.floor(product.price)
     product.buttonName = 'Add to cart'
 
     if (!this.CartItemList.includes(product)) {

@@ -6,7 +6,7 @@
             class="flex flex-col gap-1 items-center w-[350px] mx-auto m-5 h-fit bg-gray-200 rounded-lg opacity-80 shadow-xl overflow-hidden prntdescdiv">
             <img class="w-[300px] h-[300px] mix-blend-darken p-16 hover:scale-125" src="{{item.image}}" alt="">
             <h1 class="font-bold w-[14rem] pl-6 truncate">{{item.title}}</h1>
-            <h1 class="w-fit">Price: <b>{{item.price}}</b></h1>
+            <h1 class="w-fit">Price: <b>{{item.total}}</b></h1>
             <h1 class="overflow-hidden w-[16rem] truncate descdiv">{{item.description}}</h1>
             <div class="flex">
                 <button (click)="addToCart(item)"

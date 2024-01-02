@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.service.getProducts().subscribe((res) => {
       this.ourproduct = res;
       this.ourproduct.forEach((a: any) => {
-        Object.assign(a, { quantity: 1, total: a.price, buttonName: 'Add to cart' });
+        Object.assign(a, { quantity: 1, total: Math.floor(a.price), buttonName: 'Add to cart' });
       });
     });
   }

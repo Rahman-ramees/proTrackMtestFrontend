@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from 'src/app/Service/cart.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponentComponent } from '../modal-component/modal-component.component';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +20,7 @@ export class CartComponent {
   public balance: number = 0
   public shippingChrg: number = 400
 
-  constructor(private cartService: CartService, private dialog: MatDialog) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.products = this.cartService.CartItemList
@@ -43,9 +42,9 @@ export class CartComponent {
 
   addQnt(q: any) {
     q.quantity += 1
-    q.totalcamount += q.price
-    this.balance += q.price
-    this.grandTotalll += q.price
+    q.totalcamount += Math.floor(q.price);   
+    this.balance += Math.floor(q.price); 
+    this.grandTotalll += Math.floor(q.price); 
     this.cartService.checkoutData(this.balance, this.grandTotalll)
   }
 
