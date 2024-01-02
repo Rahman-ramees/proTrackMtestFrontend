@@ -82,7 +82,6 @@ export class CartService {
   }
 
   processData(data: any) {
-    console.log('Data received in service:' + data);
     this.dialog.open(ModalComponentComponent, {
       data: { inputData: data }
     });

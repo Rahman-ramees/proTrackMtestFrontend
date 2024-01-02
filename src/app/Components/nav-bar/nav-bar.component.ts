@@ -21,7 +21,6 @@ export class NavBarComponent implements OnDestroy {
     this.getProductSubscription$ = this.cartService.getWishlist()
       .subscribe((res) => {
         this.wishlistCount = res.length
-        console.log(this.wishlistCount);
       })
   }
 

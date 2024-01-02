@@ -24,7 +24,7 @@ export class CheckOutComponent implements OnInit {
     this.checkoutsbtl = this.cartService.checkoutsbtl
     this.products = this.cartService.CartItemList
     if (this.products.length >= 1) {
-      this.shipping = 400
+      this.shipping = 50
     } else {
       this.shipping = 0
     }

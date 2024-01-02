@@ -14,10 +14,8 @@ export class ModalComponentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
   
-  ngOnInit(): void {
-    console.log(this.inputData);
-
-  }
+  ngOnInit(): void {}
+  
   closeDialog(): void {
     this.dialogRef.close()
   }

@@ -18,7 +18,7 @@ export class CartComponent {
   public grandTotalll: number = 0
   subTotal: number = 0
   public balance: number = 0
-  public shippingChrg: number = 400
+  public shippingChrg: number = 50
 
   constructor(private cartService: CartService) { }
 
@@ -34,6 +34,8 @@ export class CartComponent {
 
   removeItem(item: any) {
     this.cartService.removeCartItem(item);
+    this.grandTotalll -= item.totalcamount
+    this.balance -=  item.totalcamount
   }
 
   EmtyCart() {
