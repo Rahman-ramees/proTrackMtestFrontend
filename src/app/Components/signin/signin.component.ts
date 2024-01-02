@@ -33,7 +33,6 @@ export class SigninComponent {
       this.http.post('http://localhost:3000/signin', postData).subscribe((response) => {
         this.responsefrombck = response
         console.log('Signup successful', response);
-        // this.router.navigate(['/'])
         localStorage.setItem('token', 'user2121')
       })
     } else {

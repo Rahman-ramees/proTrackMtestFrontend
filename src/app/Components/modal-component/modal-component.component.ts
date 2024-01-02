@@ -7,13 +7,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./modal-component.component.scss'],
   standalone: true,
 })
-export class ModalComponentComponent implements OnInit{
-  @Input() inputData:any
+export class ModalComponentComponent implements OnInit {
+  @Input() inputData: any
 
   constructor(public dialogRef: MatDialogRef<ModalComponentComponent>,
-     @Inject(MAT_DIALOG_DATA) public data: any
-     ) {}
-     
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) { }
   
   ngOnInit(): void {
     console.log(this.inputData);
@@ -22,10 +21,4 @@ export class ModalComponentComponent implements OnInit{
   closeDialog(): void {
     this.dialogRef.close()
   }
-  
-
-  
-
-
-  
 }

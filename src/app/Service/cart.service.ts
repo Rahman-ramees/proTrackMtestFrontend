@@ -8,19 +8,19 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CartService {
 
-  ProductList = new BehaviorSubject <any>([]);
-  ProducwishtList = new BehaviorSubject <any>([]);
-  CartItemList : any = []
-  wishItemList : any = []
+  ProductList = new BehaviorSubject<any>([]);
+  ProducwishtList = new BehaviorSubject<any>([]);
+  CartItemList: any = []
+  wishItemList: any = []
   grandtotalTest: number = 0
-  checkoutBlnc:any
-  checkoutsbtl:any
+  checkoutBlnc: any
+  checkoutsbtl: any
 
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   addToCart(product: any) {
-    product.quantity = 1    
+    product.quantity = 1
     product.totalcamount = product.price
     product.buttonName = 'Add to cart'
 
@@ -41,19 +41,19 @@ export class CartService {
     product.buttonName = !this.CartItemList.includes(product) ? 'Add to cart' : 'Remove item';
   }
 
-  addToWslist(product:any){
+  addToWslist(product: any) {
     this.wishItemList.push(product)
     this.ProducwishtList.next(this.wishItemList)
     const data = 'Item add to wishlist'
-      this.processData(data)
+    this.processData(data)
   }
 
-  getTotalPrice(grand:any): number {
+  getTotalPrice(grand: any): number {
     let grandTotal = 0
-    
+
     this.CartItemList.map((a: any) => {
       grandTotal += a.total;
-    })    
+    })
     return grandTotal
   }
 
@@ -66,7 +66,7 @@ export class CartService {
   removeCartItem(product: any) {
     this.CartItemList.map((a: any, index: any) => {
       if (product._id === a._id) {
-        this.CartItemList.splice(index,1);
+        this.CartItemList.splice(index, 1);
       }
     });
   }
@@ -76,14 +76,13 @@ export class CartService {
     this.ProductList.next(this.CartItemList);
   }
 
-  checkoutData(balance:any,subTotal:any){
-     this.checkoutBlnc = balance 
-     this.checkoutsbtl = subTotal 
+  checkoutData(balance: any, subTotal: any) {
+    this.checkoutBlnc = balance
+    this.checkoutsbtl = subTotal
   }
 
-  processData(data:any){
+  processData(data: any) {
     console.log('Data received in service:' + data);
-    // this.dialog.open(ModalComponentComponent)
     this.dialog.open(ModalComponentComponent, {
       data: { inputData: data }
     });

@@ -8,23 +8,23 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
   [x: string]: any;
 
-  signupForm!:FormGroup;
+  signupForm!: FormGroup;
   responsefrombck!: Object;
 
-  constructor(private formBldr:FormBuilder, private http:HttpClient, private router: Router){}
+  constructor(private formBldr: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBldr.group({
-      userName:['',Validators.required],
-      userEmail:['',Validators.required],
-      userPassword:['',Validators.required]
+      userName: ['', Validators.required],
+      userEmail: ['', Validators.required],
+      userPassword: ['', Validators.required]
     })
   }
 
-  onSubmit(){    
+  onSubmit() {
     const userName = this.signupForm.get('userName')
     const userEmail = this.signupForm.get('userEmail')
     const userPass = this.signupForm.get('userPassword')
@@ -34,11 +34,10 @@ export class SignupComponent implements OnInit{
       password: userPass?.value,
     };
     if (userName && userEmail && userPass) {
-      this.http.post('http://localhost:3000/signup',postData).subscribe((response)=>{
+      this.http.post('http://localhost:3000/signup', postData).subscribe((response) => {
         this.responsefrombck = response
-        console.log('Signup successful',response);
-        // this.router.navigate(['/'])
-        localStorage.setItem('token','user2121')
+        console.log('Signup successful', response);
+        localStorage.setItem('token', 'user2121')
       })
     } else {
       console.log('Signup not successful:', this.responsefrombck);

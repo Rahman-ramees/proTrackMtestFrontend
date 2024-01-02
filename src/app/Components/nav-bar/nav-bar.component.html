@@ -1,21 +1,25 @@
 <main class="p-5 shadow bg-[#F4E5B3] opacity-75 fixed w-screen z-[100]">
     <nav class="md:flex md:items-center md:justify-between lg:mx-16 duration-500">
         <div class="flex justify-between items-center">
-          <span class="text-2xl cursor-pointer">
-            <p class="h-15">ProTrack</p>
-          </span>
-          <span class="text-3xl cursor-pointer mx-2 md:hidden block" (click)="toggleMenu()">
-            <!-- Toggle menu -->
-            <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!-- Toggle close menu -->
-            <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </span>
-        </div> 
-        <ul class="md:flex bg-gradient-to-t from-[#BFDFDC] to-[#F4E5B3] md:from-transparent md:bg-transparent fontFamily md:items-center z-[1] md:z-auto md:static absolute left-0 w-full md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100" [ngClass]="{'opacity-100': isMenuOpen, 'opacity-0': !isMenuOpen, 'top-[80px]': isMenuOpen, 'top-[-400px]': !isMenuOpen}">
+            <span class="text-2xl cursor-pointer">
+                <p class="h-15">ProTrack</p>
+            </span>
+            <span class="text-3xl cursor-pointer mx-2 md:hidden block" (click)="toggleMenu()">
+                <!-- Toggle menu -->
+                <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!-- Toggle close menu -->
+                <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </span>
+        </div>
+        <ul class="md:flex bg-gradient-to-t from-[#BFDFDC] to-[#F4E5B3] md:from-transparent md:bg-transparent fontFamily md:items-center z-[1] md:z-auto md:static absolute left-0 w-full md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100"
+            [ngClass]="{'opacity-100': isMenuOpen, 'opacity-0': !isMenuOpen, 'top-[80px]': isMenuOpen, 'top-[-400px]': !isMenuOpen}">
             <li class="mx-2 md:mx-3 lg:mx-7 my-6 md:my-0">
                 <a href="" class="text-xl hover:text-orange-500 duration-500">Home</a>
             </li>
@@ -29,34 +33,43 @@
                 <a href="" class="text-xl hover:text-orange-500 duration-500">Contact</a>
             </li>
         </ul>
-        <ul class="md:flex md:items-center z-[1] md:z-auto fontFamily md:static absolute left-52 w-full md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100" [ngClass]="{'opacity-100': isMenuOpen, 'opacity-0': !isMenuOpen, 'top-[80px]': isMenuOpen, 'top-[-400px]': !isMenuOpen}">
+        <ul class="md:flex md:items-center z-[1] md:z-auto fontFamily md:static absolute left-52 w-full md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100"
+            [ngClass]="{'opacity-100': isMenuOpen, 'opacity-0': !isMenuOpen, 'top-[80px]': isMenuOpen, 'top-[-400px]': !isMenuOpen}">
             <li class="mx-2 lg:mx-2 my-6 md:my-0">
-                <a routerLink="/signin" class="text-xl md:text-[16px] hover:text-orange-500 duration-500 md:shadow-lg md:p-1 md:rounded-sm">Log-in</a>
+                <a routerLink="/signin"
+                    class="text-xl md:text-[16px] hover:text-orange-500 duration-500 md:shadow-lg md:p-1 md:rounded-sm">Log-in</a>
             </li>
             <li class="mx-2 lg:mx-2 my-6 md:my-0">
-                <a routerLink="/signup" class="text-xl md:text-[16px] hover:text-orange-500 duration-500 md:shadow-lg md:p-1 md:rounded-sm">Sign-up</a>
+                <a routerLink="/signup"
+                    class="text-xl md:text-[16px] hover:text-orange-500 duration-500 md:shadow-lg md:p-1 md:rounded-sm">Sign-up</a>
             </li>
             <li class="mx-2 lg:mx-2 my-6 md:my-0 hidden md:block" routerLink="/cart">
-                
-               <div class="flex gap-3">
-                <div class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline cursor-pointer ml-2 mr-0">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg><p class="absolute top-[-4px] left-8 text-red-500">{{cartCount}} </p>
+
+                <div class="flex gap-3">
+                    <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 inline cursor-pointer ml-2 mr-0">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                        <p class="absolute top-[-4px] left-8 text-red-500">{{cartCount}} </p>
+                    </div>
+                    <div class="font-bold">
+                        |
+                    </div>
+                    <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 inline cursor-pointer ml-[-7px]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                        </svg>
+                        <p class="absolute top-[-4px] left-4 text-red-500">{{wishlistCount}} </p>
+                    </div>
                 </div>
-                <div class="font-bold">
-                    |
-                </div>
-                <div class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline cursor-pointer ml-[-7px]">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg><p class="absolute top-[-4px] left-4 text-red-500">{{wishlistCount}} </p>
-                </div>
-               </div>
             </li>
             <li class="mx-2 my-6 md:my-0 block md:hidden">
                 <a href="" class="text-xl hover:text-orange-500 duration-500" routerLink="/cart">Cart</a>
             </li>
         </ul>
-    </nav>    
+    </nav>
 </main>
