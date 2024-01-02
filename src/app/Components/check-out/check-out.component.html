@@ -1,0 +1,39 @@
+<ng-container>
+    <div class="p-5">
+        <div class="w-full mx-auto z-10 border-2 bg-gray-200 border-gray-200 shadow-2xl rounded-lg">
+            <div class=" flex flex-row w-full h-32 border-b-2 border-r-gray-200 justify-between">
+                <p class="p-10 text-3xl font-bold">ORDER NO: 673610</p>
+                <button routerLink="/settlement" class=" border-2 border-gray-300 bg-none text-black w-52 h-12 rounded-lg text-[18px] font-bold animate-pulse m-5">Make Payment</button>
+                <button class="bg-red-600 text-white rounded-full text-xl w-7 h-7 m-5">X</button>
+    
+            </div>
+            <div *ngFor="let i of productData" class=" h-[150px] flex flex-row justify-between">
+                <img class="w-24 h-28 border-2 border-gray-300 rounded-lg mt-5 ml-5 bg-red-500" src="{{i.image}}" alt="">
+               <div class="flex flex-col p-10">
+                    <p class="text-2xl font-bold">{{i.title}}</p>
+                    <div class="overflow-hidden w-[200px] text-gray-600 text-[15px]"><p class="overflow-hidden truncate ">description</p></div>
+               </div>
+               <div class="flex flex-col p-10">
+                    <p class="text-2xl font-bold">{{i.totalcamount | currency}}</p>
+                    <p class="text-xl text-gray-500 pl-[5rem]">Qty:{{i.quantity}}</p>
+               </div>
+            </div>
+            <div>
+               <div class="flex flex-row justify-between h-20 p-5 border-b-2 border-t-2 border-gray-200">
+                    <h1 class="">Subtotal</h1>
+                    <p class="text-2xl font-bold">{{ checkoutsbtl | currency}}</p>
+               </div>
+                <div class="flex flex-row justify-between h-20 p-5 border-b-2 border-gray-200">
+                    <h1 class="">Shipping</h1>
+                    <p class="text-2xl font-bold">{{ shipping | currency}}</p>
+                </div>
+               <div class="flex flex-row justify-between h-20 p-5 border-b-2 border-gray-200">
+                    <h1 class="">Tottal</h1>
+                    <p class="text-2xl font-bold">{{ checkoutBlnc | currency}}</p>
+               </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+

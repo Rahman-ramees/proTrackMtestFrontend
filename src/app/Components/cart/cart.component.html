@@ -1,0 +1,83 @@
+<body class="w-screen h-screen">
+    <div class="md:mx-20">
+
+        <!-- CART SECTION -->
+        <section>
+            <ng-container *ngIf="len>=1">
+                <div>
+                    <div class="p-5 md:p-0 md:py-5">
+                        <h1 class="text-2xl">Your Cart</h1>
+                        <p>Item ships at checkout</p>
+                    </div>
+                    <div class="md:flex">
+                        <div class="flex flex-col md:w-1/2 md:h-[50%]">
+                            <div  *ngFor="let i of products" class="border-2 p-5 flex justify-between  w-full h-full">
+                                <div class="w-fit h-fit p-2">
+                                    <img class="w-[100px] h-[100px] md:w-[200px] md:h-[200px]" src="{{i.image}}" alt="">
+                                </div>
+                                <div class="w-fit flex flex-col justify-between">
+                                    <div class="">
+                                        <div class="truncate w-[180px]">{{i.title}}</div>
+                                        <div>{{i.quantity}} items</div>
+                                    </div>
+                                    <div class="flex flex-row text-center gap-2">
+                                        <button (click)="lessQnt(i)" class="bg-gray-600 text-white px-3 rounded-full">-</button>
+                                        <h1 class="font-bold">{{i.quantity}}</h1>
+                                        <button (click)="addQnt(i)" class="bg-gray-600 text-white px-2 rounded-full">+</button>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col justify-between">
+                                    <div class=""><button (click)="removeItem(i)" class="bg-red-500 px-2 py-0 rounded-full text-white">x</button></div>
+                                    <div class="font-bold w-12">${{i.totalcamount}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-5 md:w-1/2 h-[350px] bg-[#F4E5B3] p-5">
+                            <div><h1 class="text-2xl">Summery</h1></div>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between">
+                                    <p>Subtottal</p>
+                                    <p>${{grandTotalll}}</p>
+                                </div>
+                                <div class="flex justify-between">
+                                    <p>Shipping discount</p>
+                                    <p>$0</p>
+                                </div>
+                               <div class="flex justify-between">
+                                <p>Shipping</p>
+                                <p>${{shippingChrg}}</p>
+                               </div>
+                                <div class="flex justify-between">
+                                    <p>Tax(calculated at checkout)</p>
+                                    <p>$0</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-10">
+                                <div class="flex justify-between font-bold" >
+                                    <p>Balance</p>
+                                    <p>${{balance}}</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <button routerLink="/checkout" class="bg-blue-950 text-white px-10 py-3 rounded-lg">Checkout</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </section>
+
+        <section class="flex flex-col items-center gap-10">
+            <ng-container *ngIf="products.length==0">
+                <img class="w-full h-full mt-20 md:mt-0" src="./.../../../../../assets/Designing-An-eCommerce-Checkout-Flow_OG.jpg" alt="">
+                <button class="w-fit h-fit px-8 md:px-16 py-3 md:py-6 rounded-lg mt-[-80px] text-white md:text-xl bg-[red]" routerLink="/">Add Cart</button>
+            </ng-container>
+        </section>
+
+        
+
+
+    </div>
+</body>
+

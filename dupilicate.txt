@@ -1,0 +1,140 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ***************show cart items****************** -->
+
+<ng-container *ngIf="len>=1">
+    <div *ngIf="checkWindo==true"  class="blur-3xl w-screen bg-slate-100 h-screen absolute top-0 left-0"> </div>
+    <div>
+        <div [ngClass]=classs>
+            <table class="w-[1880px]">
+                <thead class="border-black border-2 text-center h-[55px] text-2xl">
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th class="w-[250]">Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody  class="border-black border-2 text-center h-20 text-[18px]">
+                    <tr *ngFor="let i of products;let ind = index" class="text-center border-b-2 border-black">
+                        <td>{{ind+1}}</td>
+                        <td class="w-[250px] overflow-hidden">
+                            <div class="w-[250px] overflow-hidden truncate">{{i.title}}</div>
+                        </td>
+                        <td class="flex justify-center"><img class="w-[250px] h-[250px] bg-transparent" src="{{i.image}}" alt=""></td>
+                        <td class="overflow-hidden w-[250px]">
+                            <div class="w-[250px] overflow-hidden truncate">{{i.description}}</div>
+                        </td>
+                        <th>{{i.price | currency}}</th>
+                        <td class="flex flex-row text-center">
+                            <button (click)="lessQnt(i)" class="bg-gray-600 text-white w-14 h-14">-</button>
+                            <h1>{{i.quantity}}</h1>
+                            <button (click)="addQnt(i)" class="bg-gray-600 text-white w-14 h-14">+</button>
+                        </td>
+                        <td>{{i.totalcamount |currency}}</td>
+                        <td>
+                            <button (click)="removeItem(i)" class="bg-gray-800 p-3 rounded-lg text-white">Remove</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <td class="flex  justify-end gap-10" >
+                <button (click)="EmtyCart()" class="w-32 h-16 bg-blue-950 text-white rounded-xl">Emtycart</button>
+                <button class="w-32 h-16 bg-blue-950 text-white rounded-xl">Shop More</button>
+                <button (click)="showpay()"  class="w-32 h-16 bg-blue-950 text-white rounded-xl">Order Summery</button>
+            </td>
+        </div>
+    </div>
+</ng-container>
+
+
+<!-- ****************zero products *******************  -->
+
+<ng-container *ngIf="products.length==0">
+
+    <div class="w-screen h-screen p-20 bg-gray-600">
+        <img class="w-[1500px] h-[800px]"
+            src="./../../../assets/composition-black-friday-shopping-cart-with-copy-space_23-2148667046.avif" alt="">
+        <p class="text-9xl text-white  absolute top-[350px] left-[800px]">
+            Cart Is Emty
+        </p>
+        <button  routerLink="/home"
+            class="w-52 h-20 bg-white text-black absolute left-[1300px] text-3xl rounded-2xl top-[700px]">Shop
+            now!</button>
+    </div>
+
+
+</ng-container>
+
+
+
+<!-- ****************payment details of items***************** -->
+
+<ng-container *ngIf="checkWindo==true">
+    <div class="w-[80rem]  absolute top-20 left-[280px] z-10 border-2 border-gray-200 shadow-2xl shadow-black rounded-lg ">
+        <div class=" flex flex-row w-full h-32 border-b-2 border-r-gray-200">
+            <p class="p-10 text-3xl font-bold">ORDER NO: 673610</p>
+            <button routerLink="/settlement" class="absolute top-10 left-[65rem] border-2 border-gray-300 bg-none text-black w-52 h-12 rounded-lg text-[18px] font-bold animate-pulse">Make Payment</button>
+            <button (click)="hidewindow()" class="bg-red-600 text-white absolute top-[-0.9rem] rounded-full left-[78.9rem] text-xl w-7 h-7">x</button>
+
+        </div>
+        <div *ngFor="let i of products" class=" h-[150px] flex flex-row">
+            <img class="w-24 h-28 border-2 border-gray-300 rounded-lg mt-5 ml-5" src="{{i.image}}" alt="">
+           <div class="flex flex-col absolute left-[25rem] p-10">
+                <p class="text-2xl font-bold">{{i.title}}</p>
+                <div class="overflow-hidden w-[200px] text-gray-600 text-[15px]"><p class="overflow-hidden truncate ">{{i.description}}</p></div>
+           </div>
+           <div class="flex flex-col absolute left-[65rem] p-10">
+                <p class="text-2xl font-bold">{{i.totalcamount|currency}}</p>
+                <p class="text-xl text-gray-500 pl-[5rem]">Qty:{{i.quantity}}</p>
+           </div>
+        </div>
+        <div>
+           <div class="flex flex-row h-20 p-5 border-b-2 border-t-2 border-gray-200">
+                <h1 class="">Subtotal</h1>
+                <p class="absolute left-[70rem] text-2xl font-bold">{{grandTotalll|currency}}</p>
+           </div>
+            <div  class="flex flex-row h-20 p-5 border-b-2 border-gray-200">
+                <h1 class="">Shipping</h1>
+                <p class="absolute left-[70rem] text-2xl font-bold">{{shippingChrg|currency}}</p>
+            </div>
+           <div  class="flex flex-row h-20 p-5 border-b-2 border-gray-200">
+                <h1 class="">Tottal</h1>
+                <p class="absolute left-[70rem] text-2xl font-bold">{{MasterGrndTotall|currency}}</p>
+           </div>
+        </div>
+    </div>
+</ng-container>
