@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from 'src/app/Service/cart.service';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class CartComponent {
   @Input() count: any
   cartValue: any
-  len: number = 0
   classs: any
   checkWindo = false
   public quantity: number = 0
@@ -24,7 +22,6 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.products = this.cartService.CartItemList
-    this.len = this.products.length
     this.products.map((e: { totalcamount: any; }) => {
       this.grandTotalll += e.totalcamount
     })
