@@ -30,6 +30,8 @@ export class CartComponent {
   }
 
   removeItem(item: any) {
+    console.log(item);
+    
     this.cartService.removeCartItem(item);
     this.grandTotalll -= item.totalcamount
     this.balance -=  item.totalcamount
